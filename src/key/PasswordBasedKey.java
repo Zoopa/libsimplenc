@@ -12,7 +12,6 @@ import password.Salt;
 
 public class PasswordBasedKey extends SymmetricKey{
 	private final static int PBKDF2_ITERATIONS = 10000;
-	private final static int PBKDF2_BIT_LENGTH = 256;
 	private Salt salt;
 	
 	public PasswordBasedKey(Password password, Salt salt) {
@@ -26,7 +25,7 @@ public class PasswordBasedKey extends SymmetricKey{
 	
 	private SecretKey pbkdf2(Password password, Salt salt) {
 	    try {
-	        PBEKeySpec spec = new PBEKeySpec(password.getChars(), salt.getBytes(), PBKDF2_ITERATIONS, PBKDF2_BIT_LENGTH);
+	        PBEKeySpec spec = new PBEKeySpec(password.getChars(), salt.getBytes(), PBKDF2_ITERATIONS, KEY_LENGTH_BITS);
 	        SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
 	        byte[] hash = skf.generateSecret(spec).getEncoded();
 	        return new SecretKeySpec(hash, "AES");
