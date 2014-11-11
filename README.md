@@ -1,6 +1,12 @@
 libsimplenc
 ===========
 
+An attempt to make encryption easier using some default parameters. At the moment, chosen settings are:
+
+- Encryption with AES-CBC with 256 bit keys
+- Key derivation with PBKDF2 (HMAC-SHA1 with 10k iterations)
+- SecureRandom for IV / Salt (128 bits each)
+
 **With a password-based key**:
 
 ```java
