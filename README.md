@@ -12,12 +12,16 @@ password.clear();
 Encryptor enc1 = new Encryptor(passwordBasedKey);
 Decryptor dec1 = new Decryptor(passwordBasedKey);
 
+//Encrypt a string
 EncryptedMessage msg = enc1.encrypt("This is a test 1");
-System.out.println(msg);
+
+//Decrypt and print as string
 System.out.println(dec1.decrypt(msg).getString());
 
+//Encrypt bytes
 msg = enc1.encrypt(new byte[] {1, 2, 3, 4});
-System.out.println(msg);
+
+//Decrypt and print as hex
 System.out.println(dec1.decrypt(msg).getHexString());
 ```
 
@@ -25,14 +29,18 @@ System.out.println(dec1.decrypt(msg).getHexString());
 
 ```java
 RandomKey randomKey = new RandomKey();
-Encryptor enc2 = new Encryptor(randomKey);
-Decryptor dec2 = new Decryptor(randomKey);
+Encryptor enc = new Encryptor(randomKey);
+Decryptor dec = new Decryptor(randomKey);
 
-msg = enc2.encrypt("This is a test 2");
-System.out.println(msg);
-System.out.println(dec2.decrypt(msg).getString());
+//Encrypt a string
+msg = enc.encrypt("This is a test 2");
 
-msg = enc2.encrypt(new byte[] {-1, -2, -3, -4});
-System.out.println(msg);
-System.out.println(dec2.decrypt(msg).getHexString());
+//Decrypt and print as string
+System.out.println(dec.decrypt(msg).getString());
+
+Encrypt bytes
+msg = enc.encrypt(new byte[] {-1, -2, -3, -4});
+
+//Decrypt and print as hex
+System.out.println(dec.decrypt(msg).getHexString());
 ```
