@@ -7,6 +7,8 @@ An attempt to make encryption easier using some default parameters. At the momen
 - Key derivation with PBKDF2 (HMAC-SHA1 with 10k iterations)
 - SecureRandom for IV / Salt (128 bits each)
 
+These settings were chosen to support both Desktop and Android applications.
+
 **With a password-based key**:
 
 ```java
