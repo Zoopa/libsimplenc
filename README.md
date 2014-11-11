@@ -38,7 +38,7 @@ msg = enc.encrypt("This is a test 2");
 //Decrypt and print as string
 System.out.println(dec.decrypt(msg).getString());
 
-Encrypt bytes
+//Encrypt bytes
 msg = enc.encrypt(new byte[] {-1, -2, -3, -4});
 
 //Decrypt and print as hex
