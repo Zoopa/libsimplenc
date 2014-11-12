@@ -6,10 +6,12 @@ An attempt to make encryption easier using some default parameters. At the momen
 - Encryption with AES-CBC with 256 bit keys
 - Key derivation with PBKDF2 (HMAC-SHA1 with 10k iterations)
 - SecureRandom for IV / Salt (128 bits each)
+- SHA-256 Hashing
+- Treat all strings as UTF-8
 
 These settings were chosen to support both Desktop and Android applications.
 
-**With a password-based key**:
+**Encryption / decryption with a password-based key**:
 
 ```java
 Salt salt = new Salt();
@@ -33,7 +35,7 @@ msg = enc.encrypt(new byte[] {1, 2, 3, 4});
 System.out.println( dec.decrypt(msg).getHexString() );
 ```
 
-**With a randomly generated key**:
+**Encryption / decryption with a randomly generated key**:
 
 ```java
 RandomKey randomKey = new RandomKey();
@@ -51,4 +53,14 @@ msg = enc.encrypt(new byte[] {-1, -2, -3, -4});
 
 //Decrypt and print as hex
 System.out.println( dec.decrypt(msg).getHexString() );
+```
+
+**Hashing**
+
+```java
+HashGenerator hashGen = new HashGenerator();
+HashedMessage msg = hashGen.hash("hello");
+
+//Print hash as hex
+System.out.println( msg.getHexString() );
 ```
