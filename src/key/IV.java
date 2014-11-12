@@ -1,6 +1,6 @@
 package key;
 
-import util.RandomByteGenerator;
+import generator.RandomByteGenerator;
 
 public class IV extends RandomByteGenerator{
 	//Use 128 bits because AES blocks are 128 bits

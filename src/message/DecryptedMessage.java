@@ -2,8 +2,6 @@ package message;
 
 import java.io.UnsupportedEncodingException;
 
-import util.HexUtil;
-
 public class DecryptedMessage extends Message{
 	
 	public DecryptedMessage(byte[] plaintext) {
@@ -16,9 +14,5 @@ public class DecryptedMessage extends Message{
 		} catch (UnsupportedEncodingException e) {
 			return new String(bytes);
 		}
-	}
-	
-	public String getHexString() {
-		return HexUtil.toHex(bytes);
 	}
 }

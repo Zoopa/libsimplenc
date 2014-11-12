@@ -1,8 +1,12 @@
-package util;
+package generator;
+
+import interfaces.HexPrintable;
 
 import java.security.SecureRandom;
 
-public abstract class RandomByteGenerator {
+import util.HexUtil;
+
+public abstract class RandomByteGenerator implements HexPrintable{
 	protected byte[] bytes;
 	
 	public RandomByteGenerator(int bits) {
@@ -13,5 +17,10 @@ public abstract class RandomByteGenerator {
 	
 	public byte[] getBytes() {
 		return bytes;
+	}
+	
+	@Override
+	public String getHexString() {
+		return HexUtil.toHex(bytes);
 	}
 }

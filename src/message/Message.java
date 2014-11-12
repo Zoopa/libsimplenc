@@ -1,9 +1,17 @@
 package message;
 
-public abstract class Message {
+import interfaces.HexPrintable;
+import util.HexUtil;
+
+public abstract class Message implements HexPrintable{
 	protected byte[] bytes;
 
 	public byte[] getBytes() {
 		return bytes;
+	}
+	
+	@Override
+	public String getHexString() {
+		return HexUtil.toHex(bytes);
 	}
 }

@@ -1,6 +1,6 @@
 package password;
 
-import util.RandomByteGenerator;
+import generator.RandomByteGenerator;
 
 public class Salt extends RandomByteGenerator{
 	//NIST recommends 128 bits or more
