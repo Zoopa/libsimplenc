@@ -21,6 +21,6 @@ public abstract class RandomByteGenerator implements HexPrintable{
 	
 	@Override
 	public String getHexString() {
-		return HexUtil.toHex(bytes);
+		return HexUtil.toHexString(bytes);
 	}
 }

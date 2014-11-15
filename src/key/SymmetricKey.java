@@ -16,6 +16,6 @@ public abstract class SymmetricKey implements HexPrintable{
 	
 	@Override
 	public String getHexString() {
-		return HexUtil.toHex(key.getEncoded());
+		return HexUtil.toHexString(key.getEncoded());
 	}
 }
